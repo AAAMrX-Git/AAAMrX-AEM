@@ -48,6 +48,6 @@ public class ResourceEventHandling implements ResourceChangeListener {
             
         }
     }
-    //Test to check if the changes from different branch is visible in VS code form GIT
+    //Test to check if the changes from VS code is visible in testBranch to GIT.
     
 }
