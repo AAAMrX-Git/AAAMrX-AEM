@@ -1,0 +1,28 @@
+<h1>AAAMrx - Author<h1>
+
+<div data-sly-use.aaamrxAuthor="${'com.aaamrx.demo.core.models.AAAMrXAuthor' @ rAttribute = 'AAAMrxTest'}">
+    
+
+    <p>PageName = ${aaamrxAuthor.pageName} </p>
+    <p>First Name = ${aaamrxAuthor.firstName} </p>
+    <p>Last Name = ${aaamrxAuthor.lastName} </div>
+    <p>Is the person a professor = ${aaamrxAuthor.isProfessor} </p>
+    <p>Code = ${aaamrxAuthor.codeValue} </p>
+    <p>Page Title = ${aaamrxAuthor.currentPageTitle} </p>
+    <p>Request Attribute = ${aaamrxAuthor.requestAttribute} </p>
+</div>
+<h2>${aaamrxAuthor.authorName} Books</h2>    
+===================Multifield with single field=============
+<div data-sly-list.item="${aaamrxAuthor.books}">
+----------------Books: ${itemList.count}--------------------
+    <p>Book: <b>${item}</b></p>
+</div>
+<p> ALL Book : <b>${aaamrxAuthor.books @ join=', '}</b></p>
+
+===================Using Map=============
+<div data-sly-list.item="${aaamrxAuthor.booksWithMap}">
+----------------Books: ${itemList.count}--------------------
+    <p>Book: <b>${item.bookname}</b></p>
+    <p>Subject: <b>${item.booksubject}</b></p>
+    <p>Book: <b>${item.publishyear}</b></p>
+</div>

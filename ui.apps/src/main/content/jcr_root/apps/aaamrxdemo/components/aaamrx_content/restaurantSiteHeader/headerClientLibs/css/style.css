@@ -1,0 +1,55 @@
+.site-header-container {
+    width: 100%;
+    margin: 0;
+}
+
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #f8f8f8;
+}
+
+.header-section {
+    min-height: 20px;
+    flex-grow: 1;
+}
+
+.header-left {
+    text-align: left;
+}
+
+.header-right {
+    text-align: right;
+}
+
+.header-middle {
+    text-align: center;
+    flex-grow: 2;
+}
+
+.header-logo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.header-logo {
+    width: 60px;
+    height: auto;
+    margin-right: 12px;
+}
+
+.header-site-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.header-location,
+.header-phone {
+    font-size: 0.9rem;
+    color: #333;
+}

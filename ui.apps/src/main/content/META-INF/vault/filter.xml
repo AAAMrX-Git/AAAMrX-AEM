@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/aaamrxdemo/clientlibs"/>
+    <filter root="/apps/aaamrxdemo/components"/>
+    <filter root="/apps/aaamrxdemo/i18n"/>
+    <filter root="/apps/msm/aaamrxdemo_blueprint" mode="merge"/>
+</workspaceFilter>

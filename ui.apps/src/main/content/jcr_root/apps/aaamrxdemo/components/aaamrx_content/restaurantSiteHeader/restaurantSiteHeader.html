@@ -1,0 +1,39 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.css @ categories=['aaamrxdemo.header.libs']}"/>
+<div data-sly-test.hasContent="${properties.locationText || properties.siteName || properties.phoneNumber}"
+     class="site-header-container">
+
+    <header class="site-header">
+        
+        <div class="header-section header-left">
+            <p data-sly-test="${properties.locationText}" class="header-location">
+                ${properties.locationText}
+            </p>
+        </div>
+
+        <div class="header-section header-middle">
+            <a href="${currentPage.parent.path @ extension='html'}" class="header-logo-link"
+               title="${properties.siteName || 'Home'}">
+                
+                <img src="${'/content/dam/aaamrxdemo/AAAMrX_Restaurant_Logo.png' @ context='uri'}" 
+                     alt="${properties.siteName || 'Site Logo'}" 
+                     class="header-logo"/>
+                
+                <span data-sly-test="${properties.siteName}" class="header-site-name">
+                    ${properties.siteName}
+                </span>
+            </a>
+        </div>
+
+        <div class="header-section header-right">
+            <p data-sly-test="${properties.phoneNumber}" class="header-phone">
+                Call Us: <a href="tel:${properties.phoneNumber @ format='{0}'}">${properties.phoneNumber}</a>
+            </p>
+        </div>
+    </header>
+</div>
+
+<div data-sly-test="${!hasContent}"
+     data-emptytext="Header Component - Configure Location and Phone"
+     class="cq-placeholder">
+</div>

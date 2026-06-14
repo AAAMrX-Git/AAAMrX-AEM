@@ -1,0 +1,21 @@
+<div>
+    
+    <h2 >
+        ${properties.heading}
+    </h2>
+
+    <div data-sly-test.hasContent="${properties.firstName || properties.lastName || properties.profession}">
+        
+        <div>
+            <span data-sly-test="${properties.firstName}">${properties.firstName}</span>
+            <span data-sly-test="${properties.lastName}">${properties.lastName}</span>
+        </div>
+
+        <p data-sly-test="${properties.profession}" >
+            ${properties.profession}
+        </p>
+
+    </div>
+    
+    
+</div>

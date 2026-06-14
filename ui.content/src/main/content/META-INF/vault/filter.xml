@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/aaamrxdemo" mode="merge"/>
+    <filter root="/content/aaamrxdemo" mode="merge"/>
+    <filter root="/content/dam/aaamrxdemo" mode="merge">
+        <exclude pattern="/content/dam/aaamrxdemo(/.*)?"/>
+        <include pattern="/content/dam/aaamrxdemo/jcr:content(/.*)?"/>
+    </filter>
+    <filter root="/content/dam/aaamrxdemo/asset.jpg" mode="merge"/>
+    <filter root="/content/experience-fragments/aaamrxdemo" mode="merge"/>
+    <filter root="/content/dam/formsanddocuments/aaamrxdemo">
+        <include pattern="/content/dam/formsanddocuments/aaamrxdemo(/.*)?"/>
+    </filter>
+</workspaceFilter>

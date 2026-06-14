@@ -1,0 +1,11 @@
+<ul data-sly-use.nav="com.aaamrx.demo.core.models.CustomNavigation"
+    data-sly-test.hasLinks="${nav.links}"
+    data-sly-unwrap>
+
+    <sly data-sly-list.item="${nav.links}">
+        <li>
+            <a href="${item.url}">${item.label}</a>
+        </li>
+    </sly>
+
+</ul>

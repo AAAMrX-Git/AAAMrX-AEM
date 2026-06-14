@@ -1,0 +1,11 @@
+<div class="user-api-component" style="padding: 20px; border: 1px solid #ddd; background: #ffffff; border-radius: 4px;">
+    
+    <h3>User Details (Parsed via Sling Model)</h3>
+    <hr/>
+
+    <div data-sly-use.userModel="com.aaamrx.demo.core.models.UserApiModel">
+        <p><strong>Name:</strong> ${userModel.name}</p>
+        <p><strong>Email:</strong> ${userModel.email}</p>
+    </div>
+    
+</div>
