@@ -40,6 +40,7 @@ public class ResourceEventHandling implements ResourceChangeListener {
                 node.setProperty("eventListenerAdd","Content created in "+RC.getPath()+" by "+session.getUserID());
                 session.save();
                 log.info("\n ====== Added the property ========\n");
+                
             } catch (Exception e) {
                 // TODO: handle exception
                 log.info("Exception : {}",e.getMessage());
@@ -47,5 +48,6 @@ public class ResourceEventHandling implements ResourceChangeListener {
             
         }
     }
+    //Test to check if the changes are visible in GIT.
     
 }
