@@ -12,14 +12,14 @@ public @interface SchedulerConfig {
         description = "Name of the scheduler",
         type = AttributeType.STRING
     )
-    public String schedulerName() default "Custom Sling Schedueler";
+    public String schedulerName() default "Custom Sling Scheduler";
 
     @AttributeDefinition(
         name = "Cron Expression",
         description = "Cron Expression for scheduler",
         type = AttributeType.STRING
     )
-    public String cronExpression() default "0/20 * * * * ?";
+    public String cronExpression() default "0/30 * * * * ?";
 
     @AttributeDefinition(
         name = "Enabled",

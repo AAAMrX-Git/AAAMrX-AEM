@@ -1,0 +1,48 @@
+<form id="dbCommentForm" data-action="${resource.path}.json">
+    <div style="margin-bottom: 15px;">
+        <input type="text" id="author" placeholder="Your Name" required>
+    </div>
+    <div style="margin-bottom: 15px;">
+        <textarea id="commentText" placeholder="Write a comment..." required></textarea>
+    </div>
+    <button type="submit">Submit Comment</button>
+</form>
+
+<div id="formStatus" style="margin-top: 15px; font-weight: bold;"></div>
+
+<script>
+document.getElementById('dbCommentForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const statusDiv = document.getElementById('formStatus');
+    statusDiv.innerText = "Submitting...";
+
+    // 2. Read the path cleanly from the HTML data attribute
+    const actionUrl = this.getAttribute('data-action');
+
+    const formData = new URLSearchParams();
+    formData.append('author', document.getElementById('author').value);
+    formData.append('comment', document.getElementById('commentText').value);
+
+    // 3. Use the variable in fetch
+    fetch(actionUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(data.status === 'Success') {
+            statusDiv.style.color = "green";
+            statusDiv.innerText = "Comment successfully saved to DB!";
+            document.getElementById('dbCommentForm').reset();
+        }
+    })
+    .catch(() => {
+        statusDiv.style.color = "red";
+        statusDiv.innerText = "Server communication failure.";
+    });
+});
+</script>

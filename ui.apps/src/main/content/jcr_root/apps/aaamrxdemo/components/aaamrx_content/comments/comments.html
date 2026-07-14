@@ -1,0 +1,52 @@
+<div class="comment-submission-box">
+    <h3>Leave a Comment</h3>
+    <form id="dbCommentForm">
+        <input type="hidden" id="articleId" value="${currentPage.path}">
+        
+        <div class="form-group">
+            <input type="text" id="author" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+            <textarea id="commentText" placeholder="Write your comment here..." required></textarea>
+        </div>
+        <button type="submit">Submit to DB</button>
+    </form>
+    <div id="formStatus" style="margin-top: 10px; font-weight: bold;"></div>
+</div>
+
+<script>
+document.getElementById('dbCommentForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const statusDiv = document.getElementById('formStatus');
+    statusDiv.innerText = "Sending...";
+
+    const formData = new URLSearchParams();
+    formData.append('author', document.getElementById('author').value);
+    formData.append('comment', document.getElementById('commentText').value);
+    formData.append('articleId', document.getElementById('articleId').value);
+
+    fetch('/bin/insertComment', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(data.status === 'Success') {
+            statusDiv.style.color = "green";
+            statusDiv.innerText = "Comment successfully saved to database!";
+            document.getElementById('dbCommentForm').reset();
+        } else {
+            statusDiv.style.color = "red";
+            statusDiv.innerText = "Error: " + data.message;
+        }
+    })
+    .catch(error => {
+        statusDiv.style.color = "red";
+        statusDiv.innerText = "Server communication failure.";
+    });
+});
+</script>
